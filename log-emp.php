@@ -172,10 +172,7 @@ span.psw {
   width:36px;
   height:36px;
   line-height:36px;
-
   text-align:center;
-  border-radius:50%;
-  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
   margin:0 8px;
   color:#fff;
   opacity:0.75;
@@ -238,48 +235,56 @@ span.psw {
 <!--زر تسجيل الدخول -->
   
 <div class="container">
-<form method="POST">
+<form   action="logchekemp.php" method="POST">
 
-EmployeeID :<input class="form-control" type="text" placeholder="Enter Employee ID" name="Id number" required/>
+Employee ID :<input  type="text" pattern="[0-9]{9}"placeholder="Enter Employee ID" name="EMPLOEEYID" required/>
 <br>
+Password :	<input text="password" type="password" name="PASSWORD" pattern="(?=.[a-z])(?=.*[A-Z]).{4,8}"placeholder="Enter Password" onsubmit="return checkForm(this)" value="" id="myInput" required/>
+<input type="checkbox" onclick="myFunction()">Show Password
 
-Password :<input class="form-control"  type="text" name="password" placeholder="Enter Password" required/>
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 <br>
-<button class="btn" style="background-color:#67cca5 ;color:white; width:150 ; height:60; border-radius:10px ;" type="submit" name="register"  > Login </button>
+<button class="btn" style="background-color:#67cca5 ;color:white; width:150 ; height:60; border-radius:10px ;"  type="submit" name="login"  > Login </button>
 </form>
 </div>
 
-<div >
+
 
 <!--زر التسجيل -->
-<button onclick="document.getElementById('id01').style.display='block'" style="width:150px ; height:60px ;margin-left:1200px ; margin-top:-100px ; border-radius:10px ;">Registr</button>
+<h5 style="margin-left: 980px; margin-top:-100px;">Don't have an account? </h5>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:150px ; height:60px ;margin-left:1200px ; margin-top:-50px ; border-radius:10px ;"><h6>Sign up now</h6></button>
 
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/action_page.php">
+  <form class="modal-content" action="empregdata.php"method="post">
     <div class="container">
-      <h1>Registration</h1>
+    <h1>Sign up</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
   <label id="icon" for="name"></label>
-Username  <input type="text" name="username" id="name" placeholder="Enter  username " required/>
+Username  <input type="text" name="USERNAME" id="name" placeholder="Enter  username " pattern="(?=.[a-z])(?=.*[A-Z]).{4,8}" required/>
   <label id="icon" for="name"></label>
-Employee ID <input type="UniversityID" name="name" id="name" placeholder="Enter  Employee ID" required/>
+Employee ID <input type="UniversityID" name="EMPLOEEYID" pattern="[0-9]{9}"id="name" placeholder="Enter Employee ID" required/>
   <label id="icon" for="name"></label>
-Password  <input type="password" name="name" id="name" placeholder="Enter password" required/>
+Password  <input type="password" name="PASSWORD"pattern="(?=.[a-z])(?=.*[A-Z]).{4,8}" placeholder="Enter password" required/>
 <label id="icon" for="name"></label>
-Email  <input type="text" name="name" id="name" placeholder="Enter  Email" required/>
+Email  <input type="text" name="EMAIL" id="name"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter  Email" required/>
   <label id="icon" for="name"></label>
-Phone  <input type="Phone" name="name" id="name" placeholder="Enter  phone" required/>
+Phone  <input type="Phone" name="PHONE" id="name" pattern="[0-9]{10}" placeholder="Enter  phone for example(05xxxxxxxx)" required/>
 <label id="icon" for="name"></label>
-Office number  <input type="text" name="username" id="name" placeholder="Enter Office number " required/>
+Office number  <input type="text" name="OFFICENUM" id="name"pattern="{4,18}" placeholder="Enter Office number " required/>
       <div class="clearfix">
         <button type="submit"> Sign Up</button>
-      </div>
-    </div>
-  </form>
-</div>
-<script>
+        <script>
 // Get the modal
 var modal = document.getElementById('id01');
 
@@ -290,19 +295,14 @@ window.onclick = function(event) {
   }
 }
 </script>
+      </div>
+    </div> 
+  </form>
 </div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
+   
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+
 
 
 <!--footer-->
@@ -326,7 +326,10 @@ window.onclick = function(event) {
                         </ul>
                     </div>
 
-                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                    <div class="col item social">
+                    <a href="#"><i class="icon ion-social-facebook"></i></a>
+                    <a href="#"><i class="icon ion-social-twitter"></i></a>
+                    <a href="#"><i class="icon ion-social-instagram"></i></a></div>
                 </div>
                 <p class="copyright">Copyright © La Crate. All rights reserved.</p>
             </div>
