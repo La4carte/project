@@ -10,6 +10,46 @@
 
 
 <style type="text/css">
+/*زر الاسم */
+/* Set a style for all buttons */
+.lacarte button {
+  background-color: #67cca5;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: -3% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+
 /*student image-ايقونة الطالب*/
 
 .stuloginimg
@@ -201,21 +241,55 @@ margin-left: 550px;
 
 
 <body>
-  <!--الشعار -->
+
+
+
+
+  
 <!-- header-->
 <header>
+
+<!--الشعار -->
   <div class="imaglog">
     <nav class="navbar navbar-expand-md no-gutters">
       <div class="col-2 text-left">
           <img src="logo.jpeg" alt="" width="200" height="156"  class="center"/>
-
       </div>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse-1" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
+
+
+<!--مربع الاسم -->
+      <div class="lacarte">
+      <button onclick="document.getElementById('id01').style.display='block'" style="width:150px ; height:60px ;margin-left:380px ; margin-top:0px ; border-radius:10px ;"><h4>LA CARTE</h4></button>
+      <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content">
+  <div class="container">
+     <h1 style="color:#67cca5;">CARTE ...</h1>
+      <h3>Is a free web site that helps you to order food and drink and know the offers in each college . A web site that helps you in your daily life . Our goal is to help all universities in Saudi Arabia and become No.1 as the highest web site . </h3>
+  </div>
+  </form>
+</div>    
+      <script>
+// Get the modal
+var modal = document.getElementById('id01');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+      </div>
+
+
+<!--القائمة-->
+      <div> 
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar" aria-controls="navbarNav6" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div  class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
-        <ul style="background-color: white;" class="navbar-nav justify-content-center">
+      <div  class="collapse navbar-collapse justify-content-center ">
+        <ul style="background-color: white; margin-left:350px" class="navbar-nav justify-content-center">
           <li class="nav-item active">
             <a  style="color: gray;" class="nav-link" href="#">Menu <span class="sr-only">(current)</span></a>
           </li>
@@ -235,12 +309,14 @@ margin-left: 550px;
       </div>
     </nav>
   </div>
+  </div>
+
 </header>
 <hr style="margin-top: 10px; border-width: 6px; border-color: #404040;display: block;"/>
 
 <!-- صورة العرض-->
 <div class="image">
-  <img src="image1.jpeg" alt="" style="width:1505px ;height:370px ; margin-top:5px ; margin-left:20px"/>       
+  <img src="image1.jpeg" alt="" style="width:1505px ;height:370px ; margin-top:5px ; margin-left:8.5px"/>       
 </div>
 
 
@@ -267,7 +343,7 @@ margin-left: 550px;
   <div class="admimg">
   <img src="admin.jpg" alt="" width="55" height="55"/>
   </div>
-  <h5><a href="#" >Admin</a></h5>
+  <h5><a href="admin.php" >Admin</a></h5>
 </div>
 
 
@@ -275,7 +351,7 @@ margin-left: 550px;
   <div class="cafimg">
   <img src="caf.jpg" alt="" width="55" height="55"/>
   </div>
-  <h5><a href="#" >Cafeteria</a></h5>
+  <h5><a href="cafeteria.php" >Cafeteria</a></h5>
 </div>
 
 
